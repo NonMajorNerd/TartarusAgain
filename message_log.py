@@ -34,6 +34,7 @@ class MessageLog:
         If `stack` is True then the message can stack with a previous message
         of the same text.
         """
+        stack = False
         if stack and self.messages and text == self.messages[-1].plain_text:
             self.messages[-1].count += 1
         else:

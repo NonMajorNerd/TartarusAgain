@@ -182,20 +182,10 @@ def generate_dungeon(
     r = 18
     EPSILON = 4.1
 
-    make_circle(width, height, a, b, r, EPSILON)
-
-
     # "RectangularRoom" class makes rectangles easier to work with
     new_room = RectangularRoom(x, y, room_width, room_height)
 
-       #width, height = 11, 11
-    #a, b = 5, 5
-    #r = 5
-    #EPSILON = 2.2
-
     coords = []
-
-    map_ = [['.' for x in range(width)] for y in range(height)]
 
     # outline the circle
     for y in range(height):
@@ -219,14 +209,8 @@ def generate_dungeon(
  
     player.place(*new_room.center, dungeon)
 
-    center_of_last_room = new_room.center
-
     place_entities(new_room, dungeon, engine.game_world.current_floor)
 
-    #dungeon.tiles[center_of_last_room] = tile_types.down_stairs
-    #dungeon.downstairs_location = center_of_last_room
-
-    # # Finally, append the new room to the list.
     rooms.append(new_room)
 
     return dungeon

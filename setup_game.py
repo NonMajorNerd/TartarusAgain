@@ -30,7 +30,8 @@ def new_game() -> Engine:
     max_rooms = 30
 
     player = copy.deepcopy(entity_factories.player)
-
+    player.depth = 100
+    
     engine = Engine(player=player)
 
     engine.game_world = GameWorld(
@@ -45,9 +46,9 @@ def new_game() -> Engine:
     engine.game_world.generate_floor()
     engine.update_fov()
 
-    engine.message_log.add_message(
-        "Hello and welcome, adventurer, to yet another dungeon!", color.welcome_text
-    )
+    # engine.message_log.add_message(
+    #     "Hello and welcome, adventurer, to yet another dungeon!", color.welcome_text
+    # )
 
     dagger = copy.deepcopy(entity_factories.dagger)
     leather_armor = copy.deepcopy(entity_factories.leather_armor)

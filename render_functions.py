@@ -46,7 +46,18 @@ def render_dungeon_level(
     """
     x, y = location
 
-    console.print(x=x, y=y, string=f"Dungeon level: {dungeon_level}")
+    depth = dungeon_level
+
+    if depth >= 100000:
+        depth = str(depth)[0:3:1] + "k"
+    elif depth >= 10000:
+        depth = str(depth)[0:2:1] + "k"
+    #elif depth >= 1000:
+    #    depth = str(depth)[0:1:1] + "k"
+    else:
+        depth = str(depth) + "ft"
+
+    console.print(x=x, y=y, string=f"{depth}")
 
 
 def render_names_at_mouse_location(
